@@ -11,18 +11,16 @@ import axios from "axios"
 class RoleForm extends React.Component {
   state={
       open:false,
-      role:{
-        local: "",
-        dono: "",
-        cat: "",
-        desc: "",
-        capacidade: "",
-        qnt: 1
-      }
+      local: "",
+      dono: "",
+      cat: "",
+      desc: "",
+      capacidade: "",
+      qnt: 1
+      
   }
 
   handleClickOpen = () => {
-
     this.props.bool ? this.setState({open: true}) : axios.patch("https://jiji-backend.herokuapp.com/api/roles",{_id:this.props.id})
   };
 
@@ -32,7 +30,7 @@ class RoleForm extends React.Component {
 
   handleBora = () => {
     var role = this.state.role;
-
+    //JOGAR RESTO DAS PROPS PRA CA 
     axios.post("https://jiji-backend.herokuapp.com/api/roles",{...role})
   }
   render(){
@@ -49,26 +47,39 @@ class RoleForm extends React.Component {
           </DialogContentText>
 
           <TextField
-            value={this.state.role.desc}
-            onChange={(e) => { console.log(e)}}
+            autoFocus
+            margin="dense"
+            id="dono"
+            label="Seu nome"
+            type="text"
+            fullWidth
+            
+            onChange={(e) => {this.setState({dono:e.target.value})}}
+            value={this.state.dono}
+          />
+
+          <TextField
             autoFocus
             margin="dense"
             id="desc"
             label="Descreva o seu role"
             type="text"
             fullWidth
+            
+            onChange={(e) => {this.setState({desc:e.target.value})}}
+            value={this.state.desc}
           />
 
           <TextField
             autoFocus
             margin="dense"
             id="capacidade"
-            label="Pessoal esperado"
+            label="Você e mais quantos?"
             type="number"
             max="10"
             
-            onChange={(e) => { this.setState(prev => ({ role: { ...prev.role, capacidade: e } })) }}
-            value={this.state.role.capacidade}
+            onChange={(e) => {this.setState({capacidade:e.target.value})}}
+            value={this.state.capacidade}
 
             fullWidth
           />

@@ -92,7 +92,7 @@ const Locais = () => {
   return (
     <div style={{ width: "100%" }}>
       <h1> Lista de {cat} disponíveis</h1>
-      <div style={{ display: "flex", justifyContent: "space-around", width: "100%" }}>
+      <div style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", width: "100%" }}>
         {request && request.map((local) => (
           (local.categoria == cat && <Cardd {...local}> </Cardd>)
         ))}

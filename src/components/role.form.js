@@ -21,7 +21,10 @@ class RoleForm extends React.Component {
   }
 
   handleClickOpen = () => {
-    this.props.bool ? this.setState({open: true}) : axios.patch("https://jiji-backend.herokuapp.com/api/roles",{_id:this.props.id})
+    this.props.bool ? this.setState({open: true}) : (
+      axios.patch("https://jiji-backend.herokuapp.com/api/roles",{_id:this.props.id}) &&
+      alert("Ok, uma solicitação foi enviada!")
+    )
   };
 
   handleClose = () => {

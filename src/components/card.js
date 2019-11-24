@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Cardd({_id, bio, nome, endereco, local, capacidade, qnt_atual,categoria, dono, desc}) {
+export default function Cardd({ _id, bio, nome, endereco, local, capacidade, qnt_atual, categoria, dono, desc }) {
 
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -49,27 +49,27 @@ export default function Cardd({_id, bio, nome, endereco, local, capacidade, qnt_
   };
 
   return (
-    <Card style={{marginTop: "1em",marginRight: "1em",marginBottom: "1em",marginleft: "1em"}} className={classes.card}>
-        <CardHeader
+    <Card style={{ marginTop: "1em", marginRight: "1em", marginBottom: "1em", marginleft: "1em" }} className={classes.card}>
+      <CardHeader
         avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
+          <Avatar aria-label="recipe" className={classes.avatar}>
             {nome ? nome[0] : dono[0]}
-            </Avatar>
+          </Avatar>
         }
         action={
-            <IconButton aria-label="settings">
+          <IconButton aria-label="settings">
             <MoreVertIcon />
-            </IconButton>
+          </IconButton>
         }
         title={nome ? (nome) : (dono)}
-        subheader={nome ? (endereco) : (desc +" no(a) "+ local) }
-        />
-            <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-                {bio}
-            </Typography>
-        </CardContent>
-        <RoleForm nome={nome} categoria={categoria} id={_id} bool={nome && true} />
+        subheader={nome ? (endereco) : (desc + " no(a) " + local)}
+      />
+      <CardContent>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {bio}
+        </Typography>
+      </CardContent>
+      <RoleForm nome={nome} categoria={categoria} id={_id} bool={nome && true} />
     </Card>
   );
 }

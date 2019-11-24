@@ -22,7 +22,8 @@ class RoleForm extends React.Component {
   }
 
   handleClickOpen = () => {
-    this.props.bool ? this.setState({open: true}) : alert("Beleza, bora")
+
+    this.props.bool ? this.setState({open: true}) : axios.patch("https://jiji-backend.herokuapp.com/api/roles",{_id:this.props.id})
   };
 
   handleClose = () => {
@@ -46,8 +47,10 @@ class RoleForm extends React.Component {
           <DialogContentText>
             Bem vindo a criação de roles, entre com o que você espera fazer e quantos parças vão fazer com você.
           </DialogContentText>
+
           <TextField
             value={this.state.role.desc}
+            onChange={(e) => { console.log(e)}}
             autoFocus
             margin="dense"
             id="desc"
@@ -55,6 +58,7 @@ class RoleForm extends React.Component {
             type="text"
             fullWidth
           />
+
           <TextField
             autoFocus
             margin="dense"

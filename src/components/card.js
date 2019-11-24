@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Cardd({bio, nome, endereco, capacidade, qnt_atual,categoria, dono, desc}) {
+export default function Cardd({_id, bio, nome, endereco, capacidade, qnt_atual,categoria, dono, desc}) {
 
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -73,7 +73,7 @@ export default function Cardd({bio, nome, endereco, capacidade, qnt_atual,catego
                 {bio}
             </Typography>
         </CardContent>
-        <RoleForm bool={nome && true} />
+        <RoleForm id={_id} bool={nome && true} />
     </Card>
   );
 }

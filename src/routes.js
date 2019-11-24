@@ -18,7 +18,7 @@ export default function Routes() {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/local/:cat">
+      <Route path="/lugares/:cat">
         <Locais />
       </Route>
       <Route path="/roles/:cat">

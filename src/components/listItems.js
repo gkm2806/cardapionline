@@ -18,22 +18,22 @@ import {Link} from "react-router-dom"
 export const mainListItems = (
   <div>
     <ListItem button >
-      <ListItemIcon>
-        <FastfoodIcon />
-      </ListItemIcon>
-      <ListItemText primary="Lanchonetes" />
+      <Link   to={{
+          pathname: "/lugares/lanchonete"
+        }}>
+        <ListItemIcon>
+          <FastfoodIcon />
+        </ListItemIcon>
+      </Link>
     </ListItem>
     <ListItem button>
+    <Link   to={{
+          pathname: "/lugares/bar"
+        }}>
       <ListItemIcon>
         <LocalBarIcon />
       </ListItemIcon>
-      <ListItemText primary="Bares" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Customers" />
+      </Link>
     </ListItem>
   </div>
 );

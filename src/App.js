@@ -14,7 +14,7 @@ import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
+import {Link as LinkUI} from '@material-ui/core/';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -30,10 +30,10 @@ import Routes from "./routes"
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
+      {'JIJI © '}
+      <LinkUI color="inherit" href="https://material-ui.com/">
+        Startupse-MS
+      </LinkUI>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>

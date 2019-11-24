@@ -73,7 +73,7 @@ export default function Cardd({_id, bio, nome, endereco, capacidade, qnt_atual,c
                 {bio}
             </Typography>
         </CardContent>
-        <RoleForm data={_id, bio, nome, endereco, capacidade, qnt_atual,categoria, dono, desc} id={_id} bool={nome && true} />
+        <RoleForm nome={nome} categoria={categoria} id={_id} bool={nome && true} />
     </Card>
   );
 }

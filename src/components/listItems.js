@@ -13,26 +13,46 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 import FastfoodIcon from '@material-ui/icons/Fastfood';
 import LocalBarIcon from '@material-ui/icons/LocalBar';
 
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export const mainListItems = (
   <div>
     <ListItem button >
-      <Link   to={{
-          pathname: "/lugares/lanchonete"
-        }}>
+      <Link to={{
+        pathname: "/lugares/lanchonete"
+      }}>
         <ListItemIcon>
           <FastfoodIcon />
         </ListItemIcon>
       </Link>
     </ListItem>
     <ListItem button>
-    <Link   to={{
-          pathname: "/lugares/bar"
-        }}>
-      <ListItemIcon>
-        <LocalBarIcon />
-      </ListItemIcon>
+      <Link to={{
+        pathname: "/lugares/bar"
+      }}>
+        <ListItemIcon>
+          <LocalBarIcon />
+        </ListItemIcon>
+      </Link>
+    </ListItem>
+      <hr></hr>
+    <ListItem button>
+      <Link to={{
+        pathname: "/roles/lanchonete"
+      }}>
+        <ListItemIcon>
+          <FastfoodIcon />
+        </ListItemIcon>
+      </Link>
+    </ListItem>
+
+    <ListItem button>
+      <Link to={{
+        pathname: "/roles/bar"
+      }}>
+        <ListItemIcon>
+          <LocalBarIcon />
+        </ListItemIcon>
       </Link>
     </ListItem>
   </div>

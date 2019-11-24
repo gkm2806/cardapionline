@@ -29,9 +29,23 @@ class RoleForm extends React.Component {
   };
 
   handleBora = () => {
-    var role = this.state.role;
-    //JOGAR RESTO DAS PROPS PRA CA 
-    axios.post("https://jiji-backend.herokuapp.com/api/roles",{...role})
+    const {nome, categoria} = this.props
+    const {dono, capacidade, desc} = this.state
+    var role = {
+      dono: dono,
+      capacidade: capacidade,
+      desc: desc,
+      local: nome,
+      cat: categoria,
+      qnt: 1
+    }
+    console.log(role)
+    axios({
+      method: 'POST',
+      url: "https://jiji-backend.herokuapp.com/api/roles",
+      data: role
+  })
+    this.setState({open:false})
   }
   render(){
   return (

@@ -3,25 +3,34 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useParams
+  Link
 } from "react-router-dom";
-import axios from "axios"
-
 
 import Dashboard from "./components/dashboard.js"
+
+
+
 import Cardd from "./components/card"
+
+
+  
+
 
 export default function Routes() {
   return (
-    <Switch>
-        <Route exact path="/">
-            <Home  />
-        </Route>
-        <Route path="/cat/:cat">
+    <Router>
+        <Switch>
+          <Route path="/about">
             <About  />
-        </Route>
-    </Switch>
+          </Route>
+          <Route path="/users">
+            <Users />
+          </Route>
+          <Route path="/">
+            <Dashboard />
+          </Route>
+        </Switch>
+    </Router>
   );
 }
 
@@ -29,16 +38,7 @@ function Home() {
     return <h2>Home</h2>;
   }
   
-const About = () => {
-    let { cat } = useParams();
-    const [request, setRequest] = React.useState([])
-
-
-    axios.get("https://jiji-backend.herokuapp.com/api/locais").then(res => {
-        setRequest(res.data);
-       
-      })
-    
+function About() {
     var locaisArray = [{
         nome: "Samuel Lanches",
         endereco: "Rua. Não sei, N°3",
@@ -72,15 +72,18 @@ const About = () => {
         photo_url: ""
       },
       ]
-    
     return (
         <div style={{width:"100%"}}>
-            <h1> Alo! {cat}</h1>
+            <h1> Alo!</h1>
             <div style={{display:"flex", justifyContent:"space-around", width:"100%"}}>
-            {request && request.map((local)=>(
-                (local.categoria == cat && <Cardd {...local}> </Cardd>)
+            {locaisArray.map((local)=>(
+                <Cardd {...local}> </Cardd>
             ))}
             </div>
         </div>
     );
+}
+  
+function Users() {
+    return <h2>Users</h2>;
 }

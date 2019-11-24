@@ -15,8 +15,6 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import Icon from '@material-ui/core/Icon';
-import PersonIcon from '@material-ui/icons/Person';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -42,7 +40,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Cardd({bio, nome, endereco, capacidade, qnt_atual,categoria}) {
-
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -51,37 +48,49 @@ export default function Cardd({bio, nome, endereco, capacidade, qnt_atual,catego
   };
 
   return (
-    <Card style={{marginTop: 'auto'}} className={classes.card}>
-        <CardHeader
+    <Card className={classes.card}>
+      <CardHeader
         avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
+          <Avatar aria-label="recipe" className={classes.avatar}>
             {nome[0]}
-            </Avatar>
+          </Avatar>
         }
         action={
-            <IconButton aria-label="settings">
+          <IconButton aria-label="settings">
             <MoreVertIcon />
-            </IconButton>
+          </IconButton>
         }
         title={nome}
         subheader={endereco}
-        />
-            <CardMedia
-            className={classes.media}
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTKHaOSA-TKs3OS_rAmPmF4t6rfHngGRGPeqYajm4lvR_7szXn9"
-            title="Paella dish"
-            />
-            <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-                {bio}
-            </Typography>
-        </CardContent>
-        <Icon style = {{
-            color: 'rgba(0, 0, 0, 0.54)',
-            marginLeft: '10px',
-        }} aria-label="add to favorites">
-            <PersonIcon />
-        </Icon>
+      />
+      <CardMedia
+        className={classes.media}
+        image="/static/images/cards/paella.jpg"
+        title="Paella dish"
+      />
+      <CardContent>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {bio}
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
+        <IconButton
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expanded,
+          })}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </IconButton>
+      </CardActions>
     </Card>
   );
 }

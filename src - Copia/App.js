@@ -121,6 +121,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const local = {
+  nome: "alo",
+  endereco: "",
+  categoria: "",
+  capacidade: 0,
+  qnt_atual: "",
+  photo_url: ""
+}
+
+
 export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -171,6 +181,8 @@ export default function Dashboard() {
         </div>
         <Divider />
         <List>{mainListItems}</List>
+        <Divider />
+        <List>{secondaryListItems}</List>
       </Drawer>
       <main className={classes.content}>
       <div className={classes.appBarSpacer} />

@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Cardd({_id, bio, nome, endereco, capacidade, qnt_atual,categoria, dono, desc}) {
+export default function Cardd({_id, bio, nome, endereco, local, capacidade, qnt_atual,categoria, dono, desc}) {
 
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -62,12 +62,8 @@ export default function Cardd({_id, bio, nome, endereco, capacidade, qnt_atual,c
             </IconButton>
         }
         title={nome ? (nome) : (dono)}
-        subheader={nome ? (endereco) : (desc)}
+        subheader={nome ? (endereco) : (desc +" no(a) "+ local) }
         />
-            <CardMedia
-            className={classes.media}
-            title="Paella dish"
-            />
             <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
                 {bio}

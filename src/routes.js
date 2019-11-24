@@ -89,40 +89,6 @@ const Locais = () => {
     setRequest(res.data);
   })
 
-  var locaisArray = [{
-    nome: "Samuel Lanches",
-    endereco: "Rua. Não sei, N°3",
-    categoria: "lanchonete",
-    capacidade: 15,
-    qnt_atual: 2,
-    photo_url: ""
-  },
-  {
-    nome: "Baladão do Gustavinho",
-    endereco: "Av. vamo lá, N°7",
-    categoria: "balada",
-    capacidade: 50,
-    qnt_atual: 23,
-    photo_url: ""
-  },
-  {
-    nome: "Kukiel's Bar",
-    endereco: "Av. quero, N°7",
-    categoria: "bar",
-    capacidade: 10,
-    qnt_atual: 4,
-    photo_url: ""
-  },
-  {
-    nome: "Lanchão da Ji",
-    endereco: "Av. Vamo lá, N°10",
-    categoria: "lanchonete",
-    capacidade: 20,
-    qnt_atual: 5,
-    photo_url: ""
-  },
-  ]
-
   return (
     <div style={{ width: "100%" }}>
       <h1> Lista de {cat} disponíveis</h1>

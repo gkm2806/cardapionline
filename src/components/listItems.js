@@ -17,6 +17,7 @@ import { Link } from "react-router-dom"
 
 export const mainListItems = (
   <div>
+  <center><h4> Lugares </h4></center>
     <ListItem button >
       <Link to={{
         pathname: "/lugares/lanchonete"
@@ -36,6 +37,7 @@ export const mainListItems = (
       </Link>
     </ListItem>
       <hr></hr>
+      <center><h4> Roles </h4></center>
     <ListItem button>
       <Link to={{
         pathname: "/roles/lanchonete"

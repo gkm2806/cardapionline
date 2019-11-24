@@ -12,6 +12,7 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 
 import FastfoodIcon from '@material-ui/icons/Fastfood';
 import LocalBarIcon from '@material-ui/icons/LocalBar';
+import InfoIcon from '@material-ui/icons/Info';
 
 import { Link } from "react-router-dom"
 
@@ -54,6 +55,17 @@ export const mainListItems = (
       }}>
         <ListItemIcon>
           <LocalBarIcon />
+        </ListItemIcon>
+      </Link>
+    </ListItem>
+      <hr></hr>
+      <center><h5> Contanto </h5></center>
+      <ListItem button>
+      <Link to={{
+        pathname: "/sobre"
+      }}>
+        <ListItemIcon>
+          <InfoIcon />
         </ListItemIcon>
       </Link>
     </ListItem>

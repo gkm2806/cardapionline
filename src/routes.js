@@ -24,6 +24,9 @@ export default function Routes() {
       <Route path="/roles/:cat">
         <Roles />
       </Route>
+      <Route path="/sobre">
+        <Contato />
+      </Route>
     </Switch>
   );
 }
@@ -97,6 +100,16 @@ const Locais = () => {
           (local.categoria == cat && <Cardd {...local}> </Cardd>)
         ))}
       </div>
+    </div>
+  );
+}
+
+const Contato = () => {
+  return (
+    <div style={{ width: "100%" }}>
+      <h1> Oe, Tudo bem? </h1>
+      <h3> Possui algum estabelecimento e gostaria de aparecer aqui? </h3>
+      <p> Vamos conversar! Mande um email com o assunto "GIGI" para gabrielkukiel@gmail.com </p>
     </div>
   );
 }

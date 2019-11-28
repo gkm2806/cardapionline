@@ -32,18 +32,23 @@ export default function Routes() {
 }
 
 function Home() {
-  const [request, setRequest] = React.useState([])
+  const [request1, setRequest1] = React.useState([])
+  const [request2, setRequest2] = React.useState([])
 
 
   axios.get("https://jiji-backend.herokuapp.com/api/locais").then(res => {
-    setRequest(res.data);
-
+    setRequest1(res.data);
   })
+
+  axios.get("https://jiji-backend.herokuapp.com/api/roles").then(res => {
+    setRequest2(res.data);
+  })
+
   return (
     <div>
       <h2>Home</h2>
-      <div>
-        {request && request.map((local) => (
+      <div style={grid}>
+        {request2 && request2.map((local) => (
           (<Cardd {...local}> </Cardd>)
         ))}
       </div>
@@ -74,7 +79,7 @@ const Roles = () => {
   return (
     <div style={{ width: "100%" }}>
       <h1> Lista de roles em {cat}</h1>
-      <div style={{ display: "flex", justifyContent: "space-around", flex:"1", flexWrap: "wrap", width: "100%" }}>
+      <div style={grid}>
         {request && request.map((local) => (
           (local.cat == cat && <Cardd {...local}> </Cardd>)
         ))}
@@ -82,6 +87,7 @@ const Roles = () => {
     </div>
   );
 }
+const grid = { display: "flex", justifyContent: "space-around", flex:"1", flexWrap: "wrap", width: "100%" }
 
 const Locais = () => {
   let { cat } = useParams();

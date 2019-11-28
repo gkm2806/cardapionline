@@ -20,10 +20,15 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './components/listItems';
 
+import "./firebase"
+
+import fire from "./firebase"
+
 import Chart from "./components/Chart";
 import Orders from "./components/orders"
 
 
+import "../node_modules/firebaseui/dist/firebaseui.css"
 
 import Routes from "./routes"
 
@@ -142,16 +147,16 @@ export default function Dashboard() {
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
             className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
           >
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-           
+            JIJI
           </Typography>
+          <div id="firebaseui-auth-container"></div>
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={0} color="secondary">
               <NotificationsIcon />
             </Badge>
           </IconButton>
@@ -162,7 +167,6 @@ export default function Dashboard() {
         classes={{
           paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
         }}
-        open={open}
       >
         <div className={classes.toolbarIcon}>
           <IconButton onClick={handleDrawerClose}>
@@ -176,6 +180,7 @@ export default function Dashboard() {
       <div className={classes.appBarSpacer} />
             <Container maxWidth="lg" className={classes.container}>
                 <Grid container spacing={3}>
+
                    <Routes />
                 </Grid>
                 <Box pt={4}>
